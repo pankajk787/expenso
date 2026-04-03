@@ -49,7 +49,7 @@ CATEGORY MAPPING (when adding expenses):
 
 EXAMPLES:
 - User: "I bought an iPhone for 75k" → Call add_expense(title="iPhone", amount=75000, category="Shopping")
-- User: "Set $500 budget for groceries" → Call set_budget(category="Groceries", amount=500)
+- User: "Set ₹5000 budget for groceries" → Call set_budget(category="Groceries", amount=500)
 - User: "Show budget status" → Call get_budget_status()
 - User: "Analyze my spending" → Call get_spending_insights(from="2026-03-01", to="2026-03-31", metric="category-breakdown")
                 `

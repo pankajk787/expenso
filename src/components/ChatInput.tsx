@@ -1,4 +1,4 @@
-import { useState, forwardRef, useImperativeHandle, useRef } from 'react';
+import { useState, forwardRef, useImperativeHandle, useRef, useEffect } from "react";
 
 interface ChatInputProps {
   onSendMessage: (message: string) => void;
@@ -12,8 +12,16 @@ interface ChatInputHandle {
 
 const ChatInput = forwardRef<ChatInputHandle, ChatInputProps>(
   ({ onSendMessage, isLoading = false }, ref) => {
-    const [input, setInput] = useState('');
+    const [input, setInput] = useState("");
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+    const [rows, setRows] = useState(1);
+
+    useEffect(() => {
+      const update = () => setRows(window.innerWidth < 768 ? 2 : 1);
+      update();
+      window.addEventListener("resize", update);
+      return () => window.removeEventListener("resize", update);
+    }, []);
 
     useImperativeHandle(ref, () => ({
       setInput: (text: string) => {
@@ -27,19 +35,19 @@ const ChatInput = forwardRef<ChatInputHandle, ChatInputProps>(
     const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault();
       if (input.trim() && !isLoading) {
-        console.log('Submitted:', input);
+        console.log("Submitted:", input);
         onSendMessage(input);
-        setInput('');
+        setInput("");
       }
     };
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-      if (e.key === 'Enter' && !e.shiftKey) {
+      if (e.key === "Enter" && !e.shiftKey) {
         e.preventDefault();
         if (input.trim() && !isLoading) {
-          console.log('Submitted:', input);
+          console.log("Submitted:", input);
           onSendMessage(input);
-          setInput('');
+          setInput("");
         }
       }
     };
@@ -54,7 +62,7 @@ const ChatInput = forwardRef<ChatInputHandle, ChatInputProps>(
             onKeyDown={handleKeyDown}
             placeholder="Ask me anything about your expenses..."
             disabled={isLoading}
-            rows={1}
+            rows={rows}
             className="flex-1 px-4 py-2 bg-slate-800 text-white border-0 focus:outline-none disabled:opacity-50 resize-none placeholder-slate-400"
           />
           <button
@@ -62,14 +70,14 @@ const ChatInput = forwardRef<ChatInputHandle, ChatInputProps>(
             disabled={!input.trim() || isLoading}
             className="px-6 py-2 bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
           >
-            {isLoading ? 'Sending...' : 'Send'}
+            {isLoading ? "Sending..." : "Send"}
           </button>
         </div>
       </form>
     );
-  }
+  },
 );
 
-ChatInput.displayName = 'ChatInput';
+ChatInput.displayName = "ChatInput";
 
-export default ChatInput
+export default ChatInput;

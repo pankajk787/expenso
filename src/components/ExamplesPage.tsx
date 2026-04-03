@@ -212,7 +212,7 @@ export default function ExamplesPage() {
             {[
               {
                 title: "Amounts",
-                examples: "₹500, ₹100, 1000 rupees, 50 dollars",
+                examples: "₹5000, ₹100, 1000 rupees, 50 rupees",
               },
               {
                 title: "Dates",

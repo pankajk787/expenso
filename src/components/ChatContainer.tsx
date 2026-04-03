@@ -53,7 +53,7 @@ const CARD_CONFIGS: CardConfig[] = [
     emoji: "💰",
     title: "Set a budget",
     description: "Create spending limits",
-    suggestion: "Set a ₹500 budget for groceries",
+    suggestion: "Set a 5000 rupees budget for groceries",
   },
   {
     emoji: "📊",

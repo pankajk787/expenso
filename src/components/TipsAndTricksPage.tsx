@@ -56,7 +56,7 @@ export default function TipsAndTricksPage() {
       title: "Save Time",
       category: "Efficiency Tips",
       tips: [
-        "Group similar expenses: 'food-$100, transport-₹50, entertainment-₹30'",
+        "Group similar expenses: 'food-₹100, transport-₹50, entertainment-₹30'",
         "Use quick phrases like 'lunch-₹12', 'coffee-₹5'",
         "Ask 'what are my top expenses?' to find areas to cut",
         "Request 'weekly summary' for regular check-ins",
