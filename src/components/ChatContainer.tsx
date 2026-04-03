@@ -245,7 +245,7 @@ const ChatContainer = () => {
               <div className="text-4xl text-white hidden sm:block">
                 💬 AI Expense Tracker
               </div>
-              <h1 className="text-2xl font-semibold text-white">
+              <h1 className="text-2xl font-semibold text-white text-center">
                 How can I help you today?
               </h1>
               <p className="text-slate-400 text-center max-w-sm">
