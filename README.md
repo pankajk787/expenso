@@ -1,0 +1,1 @@
+# Exponso - Track your monthly expenses and budget with AI
